@@ -126,6 +126,23 @@ h6,
 
 /******* Carousel Start *******/
 
+.carousel-item {
+    height: 800px; /* Ajusta esta altura según tus necesidades */
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;  /* Ocupa toda la altura del carousel-item */
+    overflow: hidden;
+}
+
+.mi-imagen-fondo {
+    width: 100%;
+    height: auto;  /* Mantiene la proporción de la imagen */
+    object-fit: cover;
+    object-position: center; /* Mejor centrarla para la mayoría de los casos */
+}
+
 .carousel-caption {
     top: 0;
     left: 0;
