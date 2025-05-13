@@ -127,7 +127,18 @@ h6,
 /******* Carousel Start *******/
 
 .carousel-item {
-    height: 800px; /* Ajusta esta altura según tus necesidades */
+    position: relative; /* Importante para el posicionamiento absoluto del caption */
+    display: flex; /* Para centrar verticalmente si es necesario */
+    align-items: center; /* Centra verticalmente si es necesario */
+    height: 100%; /* Asegura que el item ocupe todo el alto del carrusel */
+}
+
+.carousel-item img {
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    width: 100%; /* La imagen ocupa todo el ancho */
+    height: auto; /* La altura se ajusta proporcionalmente */
+    max-height: 600px; /* Altura máxima para la imagen (ajusta según tus necesidades) */
+    object-fit: cover; /* Recorta la imagen para que encaje */
 }
 
 .image-container {
@@ -150,6 +161,11 @@ h6,
     bottom: 0;
     background: rgba(21, 36, 64, .7);
     z-index: 1;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 @media (max-width: 576px) {
@@ -161,6 +177,36 @@ h6,
     .carousel-caption h1 {
         font-size: 30px;
         font-weight: 600 !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .carousel-item {
+        max-height: 500px; /* Altura máxima del item en móvil (ajusta según tus necesidades) */
+    }
+
+    .carousel-item img {
+        max-height: 100%; /* Asegura que la imagen no exceda la altura del item */
+        object-fit: cover; /* Recorta la imagen para que encaje */
+    }
+}
+
+.carousel-caption .p-3 {
+    width: 100%;
+    max-width: 900px;
+}
+
+.carousel-caption h5 {
+    font-size: 1.2rem;
+}
+
+.carousel-caption h1 {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .carousel-caption h1 {
+        font-size: 2rem;
     }
 }
 
