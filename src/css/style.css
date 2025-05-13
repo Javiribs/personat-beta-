@@ -226,6 +226,18 @@ h6,
     padding-right: 0 !important;
 }
 
+.btn-contact-custom { /* Clase personalizada para el botón de contacto */
+    padding: 1rem 2rem; /* Padding inicial (ajusta según necesites) */
+    font-size: 1rem; /* Tamaño de fuente inicial (ajusta según necesites) */
+}
+
+@media (max-width: 767.98px) { /* Media query para pantallas pequeñas (móvil) */
+    .btn-contact-custom {
+        padding: 0.75rem 1.5rem; /* Padding reducido en móvil */
+        font-size: 0.9rem; /* Tamaño de fuente reducido en móvil */
+    }
+}
+
 /******* Carousel finish *******/
 
 
