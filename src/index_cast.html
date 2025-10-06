@@ -322,62 +322,69 @@
         </form>
         </div>
 
-        <!-- PARTICULARES -->
-        <div class="col-lg-6 py-6 px-5 apartado-particulares">
-        <h1 class="display-5 mb-4">Busco trabajo</h1>
-        <p class="mb-4">
-            Si quieres que te ayudemos en la búsqueda de un puesto de trabajo que se ajuste a tus necesidades,
-            rellena el formulario y nos pondremos en contacto contigo cuanto antes.
+        <!-- FORMULARIO REAL -->
+        <form
+        name="contacto-formulario-particulares"
+        id="contacto-formulario-particulares"
+        method="POST"
+        action="/gracias"             <!-- (opcional) redirige a /gracias tras enviar -->
+        accept-charset="UTF-8"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        >
+        <!-- Necesario para Netlify -->
+        <input type="hidden" name="form-name" value="contacto-formulario-particulares" />
+        <!-- Honeypot -->
+        <p class="d-none">
+            <label>No rellenar: <input name="bot-field" /></label>
         </p>
 
-        <form
-            name="contacto-formulario-particulares"
-            id="contacto-formulario-particulares"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-        >
-            <!-- Necesario para Netlify -->
-            <input type="hidden" name="form-name" value="contacto-formulario-particulares">
-            <!-- Honeypot -->
-            <p class="d-none">
-            <label>No rellenar: <input name="bot-field"></label>
-            </p>
-
-            <div class="row gx-3">
+        <div class="row gx-3">
             <div class="col-6">
-                <div class="form-floating">
-                <input type="text" class="form-control" id="par-nombre" name="nombre" placeholder="Nombre" autocomplete="name" required>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="par-nombre" name="nombre" placeholder="Nombre" autocomplete="name" required />
                 <label for="par-nombre">Nombre (Obligatorio)</label>
-                </div>
+            </div>
             </div>
 
             <div class="col-6">
-                <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="par-email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="par-email" name="email" placeholder="Correo electrónico" autocomplete="email" required />
                 <label for="par-email">Correo electrónico (Obligatorio)</label>
-                </div>
+            </div>
             </div>
 
             <div class="col-6">
-                <div class="form-floating mb-3">
-                <input type="tel" class="form-control" id="par-telefono" name="telefono" placeholder="Teléfono" autocomplete="tel" required>
+            <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="par-telefono" name="telefono" placeholder="Teléfono" autocomplete="tel" required />
                 <label for="par-telefono">Teléfono (Obligatorio)</label>
-                </div>
+            </div>
             </div>
 
             <div class="col-6">
-                <div class="form-floating mb-3">
+            <div class="form-floating mb-3">
                 <textarea class="form-control" id="par-mensaje" name="mensaje" placeholder="Información adicional" style="height:100px"></textarea>
                 <label for="par-mensaje">Información adicional</label>
-                </div>
+            </div>
             </div>
 
+            <!-- (Opcional) Asunto del email en Netlify -->
+            <input type="hidden" name="subject" value="Nueva solicitud: Busco trabajo" />
+
             <div class="col-6">
-                <button class="btn btn-secondary h-100 my-custom-button" type="submit">Envia</button>
+            <button class="btn btn-secondary h-100 my-custom-button" type="submit">Enviar</button>
             </div>
-            </div>
+        </div>
         </form>
+
+        <!-- DUMMY FORM OCULTO (garantiza que Netlify detecte el formulario en build) -->
+        <form name="contacto-formulario-particulares" data-netlify="true" hidden>
+        <input type="text" name="nombre" />
+        <input type="email" name="email" />
+        <input type="tel" name="telefono" />
+        <textarea name="mensaje"></textarea>
+        </form>
+
         </div>
 
     </div>
