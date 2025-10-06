@@ -262,80 +262,128 @@
 
     <!-- Forms -->
     <div id="formularios-section" class="container-fluid bg-secondary px-0">
-        <div class="row g-0">
-            <div class="col-lg-6 py-6 px-5 apartado-empresas">
-                <h1 class="display-5 mb-4">Busco personal</h1>
-                <p class="mb-4">Si eres una empresa en busca del siguiente empleado que forme parte de tu plantilla, rellena el siguiente formulario y nos pondremos en contacto contigo, lo antes posible.</p>
-                <form name="contacto-formulario-empresas" method="POST" id="contacto-formulario-empresas" data-netlify="true">
-                    <div class="row gx-3">
-                        <div class="col-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-1" name="nombre" required>
-                                <label for="form-floating-1">Nombre (Obligatorio)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="form-floating-2" name="email" required>
-                                <label for="form-floating-2">Correo electrónico (Obligatorio)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" id="form-floating-2" name="telefono" required>
-                                <label for="form-floating-2">Teléfono (Obligatorio)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="form-floating-2" placeholder="Información adicional" name="mensaje"></textarea>
-                                <label for="form-floating-2">Información adicional</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-primary h-100 my-custom-button" type="submit">Envia</button>
-                        </div>
-                    </div>
-                </form>
+    <div class="row g-0">
+
+        <!-- EMPRESAS -->
+        <div class="col-lg-6 py-6 px-5 apartado-empresas">
+        <h1 class="display-5 mb-4">Busco personal</h1>
+        <p class="mb-4">
+            Si eres una empresa en busca del siguiente empleado que forme parte de tu plantilla,
+            rellena el siguiente formulario y nos pondremos en contacto contigo lo antes posible.
+        </p>
+
+        <form
+            name="contacto-formulario-empresas"
+            id="contacto-formulario-empresas"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+        >
+            <!-- Necesario para Netlify -->
+            <input type="hidden" name="form-name" value="contacto-formulario-empresas">
+            <!-- Honeypot -->
+            <p class="d-none">
+            <label>No rellenar: <input name="bot-field"></label>
+            </p>
+
+            <div class="row gx-3">
+            <div class="col-6">
+                <div class="form-floating">
+                <input type="text" class="form-control" id="emp-nombre" name="nombre" placeholder="Nombre" autocomplete="name" required>
+                <label for="emp-nombre">Nombre (Obligatorio)</label>
+                </div>
             </div>
-            <div class="col-lg-6 py-6 px-5 apartado-particulares">
-                <h1 class="display-5 mb-4">Busco trabajo</h1>
-                <p class="mb-4">Si quieres que te ayudemos en la búsqueda de un puesto de trabajo que se ajuste a tus necesidades, rellena el formulario y nos pondremos en contacto contigo cuanto antes.</p>
-                 <form name="contacto-formulario-particuares" method="POST" id="contacto-formulario-particulares" data-netlify="true">
-                    <div class="row gx-3">
-                        <div class="col-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-1" name="nombre" required>
-                                <label for="form-floating-1">Nombre (Obligatorio)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="form-floating-2" name="email" required>
-                                <label for="form-floating-2">Correo electrónico (Obligatorio)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" id="form-floating-2" name="telefono" required>
-                                <label for="form-floating-2">Teléfono (Obligatorio)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="form-floating-2" placeholder="Información adicional"></textarea>
-                                <label for="form-floating-2">Información adicional</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-secondary h-100 my-custom-button" type="submit">Envia</button>
-                        </div>
-                    </div>
-                </form>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="emp-email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+                <label for="emp-email">Correo electrónico (Obligatorio)</label>
+                </div>
             </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="emp-telefono" name="telefono" placeholder="Teléfono" autocomplete="tel" required>
+                <label for="emp-telefono">Teléfono (Obligatorio)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <textarea class="form-control" id="emp-mensaje" name="mensaje" placeholder="Información adicional" style="height:100px"></textarea>
+                <label for="emp-mensaje">Información adicional</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <button class="btn btn-primary h-100 my-custom-button" type="submit">Envia</button>
+            </div>
+            </div>
+        </form>
         </div>
+
+        <!-- PARTICULARES -->
+        <div class="col-lg-6 py-6 px-5 apartado-particulares">
+        <h1 class="display-5 mb-4">Busco trabajo</h1>
+        <p class="mb-4">
+            Si quieres que te ayudemos en la búsqueda de un puesto de trabajo que se ajuste a tus necesidades,
+            rellena el formulario y nos pondremos en contacto contigo cuanto antes.
+        </p>
+
+        <form
+            name="contacto-formulario-particulares"
+            id="contacto-formulario-particulares"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+        >
+            <!-- Necesario para Netlify -->
+            <input type="hidden" name="form-name" value="contacto-formulario-particulares">
+            <!-- Honeypot -->
+            <p class="d-none">
+            <label>No rellenar: <input name="bot-field"></label>
+            </p>
+
+            <div class="row gx-3">
+            <div class="col-6">
+                <div class="form-floating">
+                <input type="text" class="form-control" id="par-nombre" name="nombre" placeholder="Nombre" autocomplete="name" required>
+                <label for="par-nombre">Nombre (Obligatorio)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="par-email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+                <label for="par-email">Correo electrónico (Obligatorio)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="par-telefono" name="telefono" placeholder="Teléfono" autocomplete="tel" required>
+                <label for="par-telefono">Teléfono (Obligatorio)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <textarea class="form-control" id="par-mensaje" name="mensaje" placeholder="Información adicional" style="height:100px"></textarea>
+                <label for="par-mensaje">Información adicional</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <button class="btn btn-secondary h-100 my-custom-button" type="submit">Envia</button>
+            </div>
+            </div>
+        </form>
+        </div>
+
+    </div>
     </div>
     <!-- Forms End -->
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-secondary p-5">
