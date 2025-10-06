@@ -266,81 +266,118 @@
 
     <!-- Forms -->
     <div id="formularios-section" class="container-fluid bg-secondary px-0">
-        <div class="row g-0">
-            <div class="col-lg-6 py-6 px-5 apartado-empresas">
-                <h1 class="display-5 mb-4">Busco personal</h1>
-                <p class="mb-4">Si ets una empresa en busca del següent empleat/da que formi part de la teva plantilla, emplena el següent formulari i ens posarem en contacte amb tu, el més aviat possible.</p>
-                <form name="contacto-formulari-empresas" method="POST" id="contacto-formulari-empreses" data-netlify="true">
-                    <div class="row gx-3">
-                        <div class="col-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-1" name="nombre" required>
-                                <label for="form-floating-1">Nom (Obligatori)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="form-floating-2" name="email" required>
-                                <label for="form-floating-2">Correu electrònic (Obligatori)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" id="form-floating-2" name="telefono" required>
-                                <label for="form-floating-2">Telèfon (Obligatori)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="form-floating-2" name="mensaje" placeholder="Informació addicional"></textarea>
-                                <label for="form-floating-2">Informació addicional</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-primary h-100 my-custom-button" type="submit">Envia</button>
-                        </div>
-                    </div>
-                </form>
+    <div class="row g-0">
+
+        <!-- EMPRESAS -->
+        <div class="col-lg-6 py-6 px-5 apartado-empresas">
+        <h1 class="display-5 mb-4">Busco personal</h1>
+        <p class="mb-4">Si ets una empresa en busca del següent empleat/da que formi part de la teva plantilla, emplena el següent formulari i ens posarem en contacte amb tu, el més aviat possible.</p>
+
+        <form name="contacto-formulari-empresas"
+                id="contacto-formulari-empresas"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field">
+            <!-- Necesario para Netlify -->
+            <input type="hidden" name="form-name" value="contacto-formulari-empresas">
+            <!-- Honeypot anti-spam -->
+            <p class="d-none">
+            <label>No rellenar: <input name="bot-field"></label>
+            </p>
+
+            <div class="row gx-3">
+            <div class="col-6">
+                <div class="form-floating">
+                <input type="text" class="form-control" id="emp-nombre" name="nombre" placeholder="Nom" autocomplete="name" required>
+                <label for="emp-nombre">Nom (Obligatori)</label>
+                </div>
             </div>
-            <div class="col-lg-6 py-6 px-5 apartado-particulares">
-                <h1 class="display-5 mb-4">Busco feina</h1>
-                <p class="mb-4">Si vols que t'ajudem en la cerca d'un lloc de treball que s'ajusti a les teves necessitats, emplena el formulari i ens posarem en contacte amb tu quan abans.</p>
-                <form name="contacto-formulari-particuars" method="POST" id="contacto-formulari-particulars" data-netlify="true">
-                    <br>
-                    <div class="row gx-3">
-                        <div class="col-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-1" name="nombre" required>
-                                <label for="form-floating-1">Nom (Obligatori)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="form-floating-2" name="email">
-                                <label for="form-floating-2">Correu electrònic (Obligatori)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" id="form-floating-2" name="telefono" required>
-                                <label for="form-floating-2">Telèfon (Obligatori)</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="form-floating-2" placeholder="Informació addicional" name="mensaje"></textarea>
-                                <label for="form-floating-2">Informació addicional</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-secondary h-100 my-custom-button" type="submit">Envia</button>
-                        </div>
-                    </div>
-                </form>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="emp-email" name="email" placeholder="Correu electrònic" autocomplete="email" required>
+                <label for="emp-email">Correu electrònic (Obligatori)</label>
+                </div>
             </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="emp-telefono" name="telefono" placeholder="Telèfon" autocomplete="tel" required>
+                <label for="emp-telefono">Telèfon (Obligatori)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <textarea class="form-control" id="emp-mensaje" name="mensaje" placeholder="Informació addicional" style="height: 100px"></textarea>
+                <label for="emp-mensaje">Informació addicional</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <button class="btn btn-primary h-100 my-custom-button" type="submit">Envia</button>
+            </div>
+            </div>
+        </form>
         </div>
+
+        <!-- PARTICULARS -->
+        <div class="col-lg-6 py-6 px-5 apartado-particulares">
+        <h1 class="display-5 mb-4">Busco feina</h1>
+        <p class="mb-4">Si vols que t'ajudem en la cerca d'un lloc de treball que s'ajusti a les teves necessitats, emplena el formulari i ens posarem en contacte amb tu quan abans.</p>
+
+        <form name="contacto-formulari-particulars"
+                id="contacto-formulari-particulars"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field">
+            <!-- Necesario para Netlify -->
+            <input type="hidden" name="form-name" value="contacto-formulari-particulars">
+            <!-- Honeypot anti-spam -->
+            <p class="d-none">
+            <label>No rellenar: <input name="bot-field"></label>
+            </p>
+
+            <div class="row gx-3">
+            <div class="col-6">
+                <div class="form-floating">
+                <input type="text" class="form-control" id="par-nombre" name="nombre" placeholder="Nom" autocomplete="name" required>
+                <label for="par-nombre">Nom (Obligatori)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="par-email" name="email" placeholder="Correu electrònic" autocomplete="email" required>
+                <label for="par-email">Correu electrònic (Obligatori)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="par-telefono" name="telefono" placeholder="Telèfon" autocomplete="tel" required>
+                <label for="par-telefono">Telèfon (Obligatori)</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-floating mb-3">
+                <textarea class="form-control" id="par-mensaje" name="mensaje" placeholder="Informació addicional" style="height: 100px"></textarea>
+                <label for="par-mensaje">Informació addicional</label>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <button class="btn btn-secondary h-100 my-custom-button" type="submit">Envia</button>
+            </div>
+            </div>
+        </form>
+        </div>
+
+    </div>
     </div>
     <!-- Forms End -->
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-secondary p-5">
